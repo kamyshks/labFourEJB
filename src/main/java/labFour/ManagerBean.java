@@ -30,13 +30,8 @@ public class ManagerBean {
     public List<DotDTO> getAll(User user) {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
         List<Dot> dots = em.createQuery("SELECT dot FROM Dot dot WHERE user_id = " + user.getId(), Dot.class).getResultList();
-        System.out.println(dots);
-
-
         tx.commit();
-
         List<DotDTO> points = new ArrayList<>();
         dots.forEach(dot -> points.add(new DotDTO(dot.getX(), dot.getY(), dot.getR(), dot.getResult())));
 
@@ -46,9 +41,7 @@ public class ManagerBean {
     public void deleteAll(User user) {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
         em.createQuery("DELETE FROM Dot dot WHERE dot.user_id = " + user.getId()).executeUpdate();
-
         tx.commit();
     }
 
@@ -56,9 +49,7 @@ public class ManagerBean {
         Dot dot = new Dot(x, y, r, result);
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
         em.persist(dot);
-
         tx.commit();
     }
 
@@ -67,8 +58,15 @@ public class ManagerBean {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         user = em.createQuery("SELECT User FROM User user WHERE login= " + login, User.class).getSingleResult();
-
         tx.commit();
         return user;
+    }
+
+    public void addUser(String email,String login, String password){
+        User user = new User(email,login,password);
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(user);
+        tx.commit();
     }
 }
