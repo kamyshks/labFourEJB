@@ -1,5 +1,7 @@
 package labFour;
 
+import labFour.dto.DotDTO;
+
 import javax.ejb.Local;
 import java.util.List;
 

@@ -2,23 +2,20 @@ package labFour;
 
 import domain.Dot;
 import domain.User;
+import labFour.dto.DotDTO;
 
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Singleton;
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.ws.rs.CookieParam;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Local
 @Singleton
-public class ManagerBean {
+public class ManagerBean implements  LocalManager{
     private EntityManager em;
 
 
@@ -60,6 +57,19 @@ public class ManagerBean {
         user = em.createQuery("SELECT User FROM User user WHERE login= " + login, User.class).getSingleResult();
         tx.commit();
         return user;
+    }
+
+    public boolean checkUser(String login, String password){
+        try {
+            User user = getUserIdByLogin(login);
+            return password.equals(user.getPassword());
+        } catch (Exception ex){
+            return false;
+        }
+    }
+
+    public boolean hasUser(String login){
+        return getUserIdByLogin(login) != null;
     }
 
     public void addUser(String email,String login, String password){

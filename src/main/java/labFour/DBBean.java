@@ -1,10 +1,11 @@
 package labFour;
 
 import domain.User;
+import labFour.dto.DotDTO;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -13,15 +14,15 @@ import java.util.List;
 @Stateless
 public class DBBean implements LocalDB {
 
-    @EJB
+    @Inject
     private ManagerBean mb;
 
-    @PostConstruct
-    public void init() {
-        if (mb == null) {
-            mb = new ManagerBean();
-        }
-    }
+//    @PostConstruct
+//    public void init() {
+//        if (mb == null) {
+//            mb = new ManagerBean();
+//        }
+//    }
 
     @EJB
     private AreaValidator av;
@@ -35,6 +36,7 @@ public class DBBean implements LocalDB {
         return mb.getAll(user);
 //        return "ok";
     }
+
 
     // принимает запросы с json
     /*

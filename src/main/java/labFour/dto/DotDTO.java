@@ -1,4 +1,4 @@
-package labFour;
+package labFour.dto;
 
 public class DotDTO {
     private Double x;
