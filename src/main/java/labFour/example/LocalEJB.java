@@ -1,4 +1,4 @@
-package labFour;
+package labFour.example;
 
 import javax.ejb.Local;
 import javax.ws.rs.GET;

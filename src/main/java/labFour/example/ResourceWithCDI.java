@@ -1,4 +1,6 @@
-package labFour;
+package labFour.example;
+
+import labFour.example.ExampleEJB;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

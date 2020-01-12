@@ -1,9 +1,9 @@
-package labFour;
+package labFour.example;
 
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.ws.rs.Path;
 
-@Stateless
+@Singleton
 @Path("ejb")
 public class ExampleEJB implements LocalEJB {
 
