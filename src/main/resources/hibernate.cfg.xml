@@ -5,13 +5,18 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.url">jdbc:postgresql://localhost:5432/mydb</property>
-        <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">000</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="connection.provider_class">org.hibernate.jpa.HibernatePersistenceProvider</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <mapping class="domain.Dot"></mapping>
         <mapping class="domain.User"></mapping>
+
+
     </session-factory>
+
+
 </hibernate-configuration>
+
