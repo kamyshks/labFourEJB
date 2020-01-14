@@ -1,4 +1,4 @@
-package labFour.dto;
+package labFour;
 
 
 public class UserDTO {
@@ -36,5 +36,14 @@ public class UserDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

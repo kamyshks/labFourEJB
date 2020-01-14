@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name="webuser")
+@Table(name="client")
 public class User {
     @Id
     @GeneratedValue

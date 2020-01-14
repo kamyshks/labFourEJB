@@ -16,7 +16,6 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="dots" value="6d0ed297-d51d-4f58-bf51-263251b9452c" />
-          <factory-entry name="users" value="56acc74a-208b-46bd-840b-b6a3f4d8768b" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />

@@ -7,7 +7,7 @@ import org.hibernate.annotations.Table;
 import java.util.Objects;
 
 @Entity
-@Table(appliesTo ="webdots")
+@javax.persistence.Table(name ="dot")
 public class Dot {
     @Id
     @GeneratedValue
@@ -22,11 +22,12 @@ public class Dot {
 
     public Dot(){ }
 
-    public Dot(Double x, Double y, Double r, String result){
+    public Dot(Double x, Double y, Double r, String result, int user_id){
         setX(x);
         setR(r);
         setY(y);
         setResult(result);
+        setUser_id(user_id);
     }
 
     public int getId() {
